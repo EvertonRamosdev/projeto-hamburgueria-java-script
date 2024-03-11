@@ -1,0 +1,50 @@
+const list = document.querySelector('ul')
+const buttonShowAll= document.querySelector('.Show-all')
+const butoonMapAll= document.querySelector('.map-all')
+const sumAll = document.querySelector('.sum-all')
+const filterAll= document.querySelector('.filter-all')
+function showAll( parray) { myLi=''
+parray.forEach( (product) => {
+myLi+=
+`
+<li>
+<img src= ${product.src}>
+<p>${product.name}</p>
+<p class="item-price" >R$ ${product.price}</p>
+</li>
+
+`
+})
+
+list.innerHTML=myLi
+}
+
+function mapAllItems() { 
+  const newPrices = menuOptions.map( (index) =>({
+  ...index,
+price:index.price * 0.9,
+
+}))
+
+showAll(newPrices)
+
+}
+
+function sumAllitems(){
+ const totalValue = menuOptions.reduce((acc,curr) => acc + curr + curr.price,0)
+ list.innerHTML =` <li>
+  <p> o valor total dos itens é R$ ${totalValue} </p>
+</li>`
+
+console.log(totalValue)
+}
+
+function filterAllItems(){
+  const filterJustVegan= menuOptions .filter((product)=> product.vegan)
+  showAll(filterJustVegan)
+}
+
+ buttonShowAll.addEventListener('click' ,()=> showAll(menuOptions))
+ butoonMapAll.addEventListener('click',mapAllItems )
+ sumAll.addEventListener('click', sumAllitems)
+ filterAll.addEventListener('click', filterAllItems)
