@@ -62,3 +62,31 @@ p {
     font-weight: bold;
     color: #79cb15;
 }
+
+@media screen and ( max-width:750px ) {
+    
+    ul{ display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+
+    li{justify-content: center;
+            width: 100%
+    }
+     img{width: 100%;
+     }
+        section{
+            
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+           
+        }
+
+        button{
+            width: 18%;
+            font-size: 9px;
+            height: 24%;
+        }
+}

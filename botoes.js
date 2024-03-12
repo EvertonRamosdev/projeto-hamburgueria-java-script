@@ -47,8 +47,6 @@ function filterAllItems() {
 
 
 
-
-
 buttonShowAll.addEventListener('click', () => showAll(menuOptions))
 butoonMapAll.addEventListener('click', mapAllItems)
 sumAll.addEventListener('click', sumAllitems)
