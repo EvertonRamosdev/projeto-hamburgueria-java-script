@@ -1,50 +1,55 @@
 const list = document.querySelector('ul')
-const buttonShowAll= document.querySelector('.Show-all')
-const butoonMapAll= document.querySelector('.map-all')
+const buttonShowAll = document.querySelector('.Show-all')
+const butoonMapAll = document.querySelector('.map-all')
 const sumAll = document.querySelector('.sum-all')
-const filterAll= document.querySelector('.filter-all')
-function showAll( parray) { myLi=''
-parray.forEach( (product) => {
-myLi+=
-`
-<li>
-<img src= ${product.src}>
-<p>${product.name}</p>
-<p class="item-price" >R$ ${product.price}</p>
-</li>
+const filterAll = document.querySelector('.filter-all')
+
+function showAll(parray) {
+  myLi = ''
+
+  parray.forEach((product) => {
+    myLi += `
+  <li>
+  <img src= ${product.src}>
+  <p>${product.name}</p>
+  <p class="item-price" >R$ ${product.price}</p>
+  </li>
 
 `
-})
-
-list.innerHTML=myLi
+  })
+  list.innerHTML = myLi
 }
 
-function mapAllItems() { 
-  const newPrices = menuOptions.map( (index) =>({
-  ...index,
-price:index.price * 0.9,
+function mapAllItems() {
+  const newPrices = menuOptions.map((product) => ({
+    ...product,
+    price: product.price * 0.9,
+  }))
 
-}))
-
-showAll(newPrices)
+  showAll(newPrices)
 
 }
 
-function sumAllitems(){
- const totalValue = menuOptions.reduce((acc,curr) => acc + curr + curr.price,0)
- list.innerHTML =` <li>
-  <p> o valor total dos itens é R$ ${totalValue} </p>
-</li>`
+function sumAllitems() {
+  const totalValue = menuOptions.reduce((acc, curr) => acc + curr.price, 0)
 
-console.log(totalValue)
+  list.innerHTML = 
+  ` <li>
+ <p> o valor total dos itens é R$ $${totalValue}</p>
+  </li>`
 }
 
-function filterAllItems(){
-  const filterJustVegan= menuOptions .filter((product)=> product.vegan)
+
+function filterAllItems() {
+  const filterJustVegan = menuOptions.filter((product) => product.vegan)
   showAll(filterJustVegan)
 }
 
- buttonShowAll.addEventListener('click' ,()=> showAll(menuOptions))
- butoonMapAll.addEventListener('click',mapAllItems )
- sumAll.addEventListener('click', sumAllitems)
- filterAll.addEventListener('click', filterAllItems)
+
+
+
+
+buttonShowAll.addEventListener('click', () => showAll(menuOptions))
+butoonMapAll.addEventListener('click', mapAllItems)
+sumAll.addEventListener('click', sumAllitems)
+filterAll.addEventListener('click', filterAllItems)
