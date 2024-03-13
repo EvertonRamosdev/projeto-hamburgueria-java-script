@@ -66,13 +66,12 @@ p {
 @media screen and ( max-width:750px ) {
     
     ul{ display: flex;
-        flex-direction: column;
-        justify-content: center;
+        flex-wrap: wrap;
         
     }
 
     li{justify-content: center;
-            width: 100%
+            width: 120px
     }
      img{width: 100%;
      }
